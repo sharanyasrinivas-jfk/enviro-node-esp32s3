@@ -1,0 +1,251 @@
+(kicad_sch
+  (version 20231120)
+  (generator "eeschema")
+  (generator_version "8.0")
+  (uuid "a1b2c3d4-e5f6-7890-abcd-ef1234567890")
+  (paper "A4")
+
+  (title_block
+    (title "IoT Environmental Sensor Board")
+    (date "2026-04-15")
+    (rev "2.1")
+    (company "Brad Barroso — Open Hardware")
+    (comment 1 "ESP32-S3 + BMP280 + SHT40 + CCS811")
+    (comment 2 "4-Layer PCB, USB-C Power")
+  )
+
+  (lib_symbols
+    ;; ESP32-S3-WROOM-1
+    (symbol "ESP32-S3-WROOM-1"
+      (pin_names (offset 1.016))
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U"
+        (at 0 26.67 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "ESP32-S3-WROOM-1"
+        (at 0 -26.67 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "RF_Module:ESP32-S3-WROOM-1"
+        (at 0 -29.21 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf"
+        (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "LCSC" "C2913202"
+        (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "ESP32-S3-WROOM-1_0_1"
+        (rectangle
+          (start -12.7 25.4)
+          (end 12.7 -25.4)
+          (stroke (width 0.254) (type default))
+          (fill (type background))
+        )
+      )
+      (symbol "ESP32-S3-WROOM-1_1_1"
+        (pin power_in line (at -2.54 27.94 270) (length 2.54) (name "3V3" (effects (font (size 1.27 1.27)))) (number "1"))
+        (pin power_in line (at 0 -27.94 90) (length 2.54) (name "GND" (effects (font (size 1.27 1.27)))) (number "2"))
+        (pin bidirectional line (at 15.24 20.32 180) (length 2.54) (name "IO0" (effects (font (size 1.27 1.27)))) (number "3"))
+        (pin bidirectional line (at 15.24 17.78 180) (length 2.54) (name "IO1/SDA" (effects (font (size 1.27 1.27)))) (number "4"))
+        (pin bidirectional line (at 15.24 15.24 180) (length 2.54) (name "IO2/SCL" (effects (font (size 1.27 1.27)))) (number "5"))
+        (pin bidirectional line (at 15.24 12.7 180) (length 2.54) (name "IO3" (effects (font (size 1.27 1.27)))) (number "6"))
+        (pin bidirectional line (at 15.24 10.16 180) (length 2.54) (name "IO4" (effects (font (size 1.27 1.27)))) (number "7"))
+        (pin bidirectional line (at 15.24 7.62 180) (length 2.54) (name "IO5" (effects (font (size 1.27 1.27)))) (number "8"))
+        (pin input line (at -15.24 20.32 0) (length 2.54) (name "EN" (effects (font (size 1.27 1.27)))) (number "9"))
+        (pin bidirectional line (at 15.24 5.08 180) (length 2.54) (name "IO19/USB_D-" (effects (font (size 1.27 1.27)))) (number "10"))
+        (pin bidirectional line (at 15.24 2.54 180) (length 2.54) (name "IO20/USB_D+" (effects (font (size 1.27 1.27)))) (number "11"))
+      )
+    )
+
+    ;; BMP280 Pressure/Temperature Sensor
+    (symbol "BMP280"
+      (pin_names (offset 1.016))
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U"
+        (at 0 8.89 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "BMP280"
+        (at 0 -8.89 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "Package_LGA:Bosch_LGA-8_2x2.5mm_P0.65mm"
+        (at 0 -11.43 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf"
+        (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "BMP280_0_1"
+        (rectangle
+          (start -7.62 7.62)
+          (end 7.62 -7.62)
+          (stroke (width 0.254) (type default))
+          (fill (type background))
+        )
+      )
+      (symbol "BMP280_1_1"
+        (pin power_in line (at 0 10.16 270) (length 2.54) (name "VDD" (effects (font (size 1.27 1.27)))) (number "1"))
+        (pin power_in line (at 0 -10.16 90) (length 2.54) (name "GND" (effects (font (size 1.27 1.27)))) (number "2"))
+        (pin bidirectional line (at 10.16 2.54 180) (length 2.54) (name "SDA/SDI" (effects (font (size 1.27 1.27)))) (number "3"))
+        (pin input line (at 10.16 0 180) (length 2.54) (name "SCL/SCK" (effects (font (size 1.27 1.27)))) (number "4"))
+        (pin input line (at -10.16 0 0) (length 2.54) (name "CSB" (effects (font (size 1.27 1.27)))) (number "5"))
+        (pin input line (at -10.16 2.54 0) (length 2.54) (name "SDO" (effects (font (size 1.27 1.27)))) (number "6"))
+      )
+    )
+
+    ;; AP2112K-3.3 LDO Regulator
+    (symbol "AP2112K-3.3"
+      (pin_names (offset 1.016))
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U"
+        (at 0 6.35 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "AP2112K-3.3"
+        (at 0 -6.35 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+        (at 0 -8.89 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "AP2112K-3.3_0_1"
+        (rectangle
+          (start -7.62 5.08)
+          (end 7.62 -5.08)
+          (stroke (width 0.254) (type default))
+          (fill (type background))
+        )
+      )
+      (symbol "AP2112K-3.3_1_1"
+        (pin power_in line (at -10.16 2.54 0) (length 2.54) (name "VIN" (effects (font (size 1.27 1.27)))) (number "1"))
+        (pin power_in line (at 0 -7.62 90) (length 2.54) (name "GND" (effects (font (size 1.27 1.27)))) (number "2"))
+        (pin input line (at -10.16 -2.54 0) (length 2.54) (name "EN" (effects (font (size 1.27 1.27)))) (number "3"))
+        (pin no_connect line (at 10.16 -2.54 180) (length 2.54) (name "NC" (effects (font (size 1.27 1.27)))) (number "4"))
+        (pin power_out line (at 10.16 2.54 180) (length 2.54) (name "VOUT" (effects (font (size 1.27 1.27)))) (number "5"))
+      )
+    )
+  )
+
+  ;; Sheet instances — hierarchical design
+  (sheet
+    (at 25.4 60.96)
+    (size 20.32 10.16)
+    (fields_autoplaced yes)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 255 255 255 0.0))
+    (uuid "b2c3d4e5-f6a7-8901-bcde-f23456789012")
+    (property "Sheetname" "Power Supply"
+      (at 25.4 59.69 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "power-supply.kicad_sch"
+      (at 25.4 71.755 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "VIN" input
+      (at 25.4 63.5)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid "pin-vin-uuid")
+    )
+    (pin "VOUT_3V3" output
+      (at 45.72 63.5)
+      (effects (font (size 1.27 1.27)) (justify right))
+      (uuid "pin-vout-uuid")
+    )
+    (pin "GND" bidirectional
+      (at 35.56 71.12)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid "pin-gnd-uuid")
+    )
+  )
+
+  (sheet
+    (at 25.4 85.09)
+    (size 20.32 10.16)
+    (fields_autoplaced yes)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 255 255 255 0.0))
+    (uuid "c3d4e5f6-a7b8-9012-cdef-345678901234")
+    (property "Sheetname" "Sensor Interface"
+      (at 25.4 83.82 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "sensor-interface.kicad_sch"
+      (at 25.4 95.885 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "SDA" bidirectional
+      (at 25.4 88.9)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid "pin-sda-uuid")
+    )
+    (pin "SCL" bidirectional
+      (at 25.4 91.44)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid "pin-scl-uuid")
+    )
+  )
+
+  ;; Main MCU symbol instance
+  (symbol
+    (lib_id "ESP32-S3-WROOM-1")
+    (at 101.6 76.2)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (uuid "d4e5f6a7-b8c9-0123-defa-456789012345")
+    (property "Reference" "U1"
+      (at 101.6 46.99 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "ESP32-S3-WROOM-1"
+      (at 101.6 49.53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+  )
+
+  ;; Power flag and net labels
+  (global_label "3V3"
+    (shape input)
+    (at 73.66 63.5 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "gl-3v3-uuid")
+    (property "Intersheetref" "${INTERSHEET_REFS}")
+  )
+  (global_label "GND"
+    (shape input)
+    (at 73.66 104.14 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "gl-gnd-uuid")
+    (property "Intersheetref" "${INTERSHEET_REFS}")
+  )
+  (global_label "SDA"
+    (shape bidirectional)
+    (at 119.38 93.98 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "gl-sda-uuid")
+    (property "Intersheetref" "${INTERSHEET_REFS}")
+  )
+  (global_label "SCL"
+    (shape bidirectional)
+    (at 119.38 91.44 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "gl-scl-uuid")
+    (property "Intersheetref" "${INTERSHEET_REFS}")
+  )
+)
